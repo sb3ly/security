@@ -1,5 +1,4 @@
-
-        <!DOCTYPE html>
+ <!DOCTYPE html>
         <html lang="en">
         <head>
             <meta charset="UTF-8">
@@ -7,7 +6,7 @@
             <title>اهلا بك في مدونتي الشخصية</title>
             <style>
                 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-                
+
                 :root {
                     --primary-color: #ff7f50;
                     --secondary-color: #6e44ff;
@@ -15,8 +14,45 @@
                     --background-color: #000;
                     --container-bg: rgba(0, 20, 40, 0.8);
                 }
-                                
-                
+
+
+
+                                .responsive-img {
+                    max-width: 100%; /* الصورة لا تتجاوز عرض الحاوية الخاصة بها */
+                    height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+                    display: block; /* منع وجود الفراغات البيضاء أسفل الصورة */
+                    margin: 0 auto; /* جعل الصورة تتمركز أفقياً */
+                }
+
+                /* تحسين العرض على الشاشات الصغيرة */
+                @media screen and (max-width: 768px) {
+                    .responsive-img {
+                        max-width: 100%; /* تأكيد أن الصورة تعرض بنسبة 100% على الجوالات */
+                        height: auto;
+                    }
+                }
+
+                /* تحسين العرض على الشاشات المتوسطة */
+                @media screen and (min-width: 768px) and (max-width: 1024px) {
+                .responsive-img {
+                        max-width: 90%; /* تقليل العرض على الشاشات المتوسطة */
+                        margin: 0 auto;
+                    }
+                }
+
+                /* تحسين العرض على الشاشات الكبيرة */
+                @media screen and (min-width: 1024px) {
+                    .responsive-img {
+                        max-width: 80%; /* تقليل العرض على الشاشات الكبيرة */
+                        margin: 0 auto;
+                    }
+                }
+
+
+
+
+
+
                 body {
                     font-family: 'Share Tech Mono', monospace;
                     line-height: 1.6;
@@ -25,7 +61,7 @@
                     margin: 0;
                     padding: 0;
                     overflow-x: hidden;
-                    background-image: 
+                    background-image:
                         linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
                         linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
                     background-size: 20px 20px;
@@ -39,7 +75,7 @@
 
 
 
-                    
+
                 .container {
                     max-width: 900px;
                     margin: 2rem auto;
@@ -371,7 +407,7 @@
                         <span class="summary-value">المعصوب & Linux</span>
                     </div>
                 </div>
-               
+
                 <div class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-value"><a href="google.com" >google</a></div>
@@ -421,14 +457,13 @@
                 <ul class="vulnerable-list">
                     <li class="vulnerable-item">
                     <a href="google.com" target="_blank" style="color: inherit; text-decoration: none;">الموضوع الأول</a></li>
-                    
+
                   <li class="vulnerable-item"><a href="google.com" target="_blank" style="color: inherit; text-decoration: none;">الموضوع الثاني</a></li>
-                    
+
                    <li class="vulnerable-item"><a href="google.com" style="color: inherit; text-decoration: none;">الموضوع الثالث</a></li>
-                   
+
                 </ul>
-                
+
             </div>
         </body>
         </html>
-        
