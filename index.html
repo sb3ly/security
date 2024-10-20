@@ -1,120 +1,429 @@
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مدونة التصيد الاحتيالي</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-image: url('https://images.unsplash.com/photo-1593642632784-d121781b1b93?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&q=80&w=1080'); /* صورة خلفية */
-            background-size: cover; /* تجعل الصورة تتناسب مع حجم الشاشة */
-            background-position: center; /* مركز الصورة */
-            background-attachment: fixed; /* تجعل الخلفية ثابتة أثناء التمرير */
-            color: #333; /* لون النص */
-        }
 
-        header {
-            background: rgba(0, 123, 255, 0.8); /* لون خلفية مع شفافية */
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>اهلا بك في مدونتي الشخصية</title>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+                
+                :root {
+                    --primary-color: #ff7f50;
+                    --secondary-color: #6e44ff;
+                    --accent-color: #5dc05d;
+                    --background-color: #000;
+                    --container-bg: rgba(0, 20, 40, 0.8);
+                }
+                
+                body {
+                    font-family: 'Share Tech Mono', monospace;
+                    line-height: 1.6;
+                    color: var(--primary-color);
+                    background-color: var(--background-color);
+                    margin: 0;
+                    padding: 0;
+                    overflow-x: hidden;
+                    background-image: 
+                        linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+                    background-size: 20px 20px;
+                    animation: backgroundScroll 20s linear infinite;
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:rgba(255,127,80,1);"><path d="M12 0c1.104.001 2 .896 2 2v6h8c1.104 0 2 .896 2 2s-.896 2-2 2h-8v8c0 1.104-.896 2-2 2s-2-.896-2-2v-8h-8c-1.104 0-2-.896-2-2s.896-2 2-2h8v-6c0-1.104.896-2 2-2z"/></svg>'), auto;
+                }
+                @keyframes backgroundScroll {
+                    0% { background-position: 0 0; }
+                    100% { background-position: 0 20px; }
+                }
+                .container {
+                    max-width: 900px;
+                    margin: 2rem auto;
+                    padding: 2rem;
+                    background-color: var(--container-bg);
+                    box-shadow: 0 0 20px var(--primary-color);
+                    border-radius: 10px;
+                    position: relative;
+                    overflow: hidden;
+                    border: 1px solid var(--primary-color);
+                }
+                .container::before {
+                    content: "";
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: repeating-linear-gradient(
+                        0deg,
+                        transparent,
+                        transparent 2px,
+                        rgba(0, 255, 255, 0.1) 2px,
+                        rgba(0, 255, 255, 0.1) 4px
+                    );
+                    animation: scan 10s linear infinite;
+                    pointer-events: none;
+                    z-index: -1;
+                }
+                @keyframes scan {
+                    0% { transform: translateY(0); }
+                    100% { transform: translateY(50%); }
+                }
+                .animated-text {
+                    position: relative;
+                    display: inline-block;
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    letter-spacing: 4px;
+                    color: var(--secondary-color);
+                    text-shadow: 0 0 10px var(--secondary-color);
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    text-align: center;
+                }
+                .animated-text::before,
+                .animated-text::after {
+                    content: attr(data-text);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                }
+                .animated-text::before {
+                    color: var(--accent-color);
+                    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+                }
+                .animated-text::after {
+                    color: var(--primary-color);
+                    animation: glitch 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+                }
+                * {
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:rgba(110,68,255,1);transform:rotate(-45deg);"><path d="M12 2L2 22l10-6 10 6L12 2z"/></svg>'), auto;
+                }
+                a, .stat-card, .vulnerable-item, button, input[type="submit"] {
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:rgba(110,68,255,1);transform:rotate(-45deg);"><path d="M12 2L2 22l10-6 10 6L12 2z"/></svg>'), pointer;
+                }
+                a:hover, .stat-card:hover, button:hover, input[type="submit"]:hover {
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:rgba(255,127,80,1);transform:rotate(-45deg);"><path d="M12 2L2 22l10-6 10 6L12 2z"/></svg>'), pointer;
+                    filter: drop-shadow(0 0 6px var(--secondary-color));
+                }
+                .vulnerable-item:hover {
+                    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:rgba(255,0,0,1);transform:rotate(-45deg);"><path d="M12 2L2 22l10-6 10 6L12 2z"/></svg>'), pointer;
+                    filter: drop-shadow(0 0 6px #f00);
+                }
+                @keyframes glitch {
+                    0% { transform: translate(0); }
+                    20% { transform: translate(-2px, 2px); }
+                    40% { transform: translate(-2px, -2px); }
+                    60% { transform: translate(2px, 2px); }
+                    80% { transform: translate(2px, -2px); }
+                    100% { transform: translate(0); }
+                }
+                .logo {
+                    text-align: center;
+                    margin-bottom: 2rem;
+                }
+                .logo svg {
+                    max-width: 300px;
+                    height: auto;
+                }
+                .summary {
+                    background-color: rgba(0, 40, 80, 0.6);
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    margin-bottom: 2rem;
+                    border: 1px solid var(--primary-color);
+                    box-shadow: 0 0 10px var(--primary-color);
+                }
+                .summary-item {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 0.5rem;
+                    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+                    padding-bottom: 0.5rem;
+                }
+                .summary-label {
+                    font-weight: bold;
+                    color: var(--accent-color);
+                }
+                .summary-value {
+                    color: var(--primary-color);
+                }
+                .progress-bar {
+                    width: 100%;
+                    height: 20px;
+                    background-color: rgba(0, 255, 255, 0.1);
+                    border-radius: 10px;
+                    overflow: hidden;
+                    margin-bottom: 1rem;
+                }
+                .progress {
+                    width: 53.65853658536586%;
+                    height: 100%;
+                    background-color: var(--secondary-color);
+                    animation: pulse 2s infinite;
+                }
+                @keyframes pulse {
+                    0% { opacity: 0.6; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0.6; }
+                }
+                .stats-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 1rem;
+                    margin-bottom: 2rem;
+                }
+                .stat-card {
+                    background-color: rgba(0, 40, 80, 0.6);
+                    padding: 1rem;
+                    border-radius: 8px;
+                    text-align: center;
+                    border: 1px solid var(--primary-color);
+                    transition: all 0.3s ease;
+                }
+                .stat-card:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 5px 15px rgba(0, 255, 255, 0.3);
+                }
+                .stat-value {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    color: var(--accent-color);
+                }
+                .stat-label {
+                    font-size: 0.9rem;
+                    color: var(--primary-color);
+                }
+                .timeline {
+                    position: relative;
+                    max-width: 1200px;
+                    margin: 2rem auto;
+                }
+                .timeline::after {
+                    content: '';
+                    position: absolute;
+                    width: 6px;
+                    background-color: var(--primary-color);
+                    top: 0;
+                    bottom: 0;
+                    left: 50%;
+                    margin-left: -3px;
+                }
+                .timeline-item {
+                    padding: 0px 0px;
+                    position: relative;
+                    background-color: inherit;
+                    width: 50%;
+                }
+                .timeline-item::after {
+                    content: '';
+                    position: absolute;
+                    width: 25px;
+                    height: 25px;
+                    right: -17px;
+                    background-color: var(--background-color);
+                    border: 4px solid var(--accent-color);
+                    top: 15px;
+                    border-radius: 50%;
+                    z-index: 1;
+                }
+                .left {
+                    left: 0;
+                }
+                .right {
+                    left: 50%;
+                }
+                .right::after {
+                    left: -16px;
+                }
+                .timeline-content {
+                    padding: 20px 30px;
+                    background-color: rgba(0, 40, 80, 0.6);
+                    position: relative;
+                    border-radius: 7px;
+                }
+                .vulnerable-item {
+                    background-color: rgba(255, 0, 0, 0.2);
+                    border: 1px solid #f00;
+                    color: #f00;
+                    padding: 1rem;
+                    margin-bottom: 1rem;
+                    border-radius: 4px;
+                    word-break: break-all;
+                    box-shadow: 0 0 10px #f00;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .vulnerable-item::before {
+                    content: "-UST-";
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    background-color: #f00;
+                    color: #000;
+                    font-size: 0.7rem;
+                    padding: 0.2rem 0.5rem;
+                    transform: rotate(45deg) translate(10%, -30%);
+                }
+                .vulnerable-item:hover {
+                    transform: scale(1.02);
+                    box-shadow: 0 0 20px #f00;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
+<div class="logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+        <defs>
+            <!-- Gradient Definitions -->
+            <linearGradient id="scanGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#6E44FF"/>
+                <stop offset="50%" style="stop-color:#1CDCE8"/>
+                <stop offset="100%" style="stop-color:#F77E21"/>
+            </linearGradient>
+            <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FF5F6D"/>
+                <stop offset="50%" style="stop-color:#FFC371"/>
+                <stop offset="100%" style="stop-color:#FF5F6D"/>
+            </linearGradient>
+        </defs>
 
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
+        <!-- Central Logo Text -->
+        <g transform="translate(150,150)">
+            <text x="0" y="5" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="url(#textGradient)" text-anchor="middle">SY</text>
+        </g>
 
-        nav a {
-            color: #fff;
-            text-decoration: none;
-        }
+        <!-- Points around the logo with individual animations -->
+        <g id="points">
+            <circle id="point1" cx="150" cy="40" r="3" fill="#FF5F6D" />
+            <circle id="point2" cx="200" cy="100" r="3" fill="#FFC371" />
+            <circle id="point3" cx="175" cy="175" r="3" fill="#F77E21" />
+            <circle id="point4" cx="125" cy="175" r="3" fill="#1CDCE8" />
+            <circle id="point5" cx="100" cy="100" r="3" fill="#6E44FF" />
+        </g>
 
-        main {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* خلفية بيضاء مع شفافية للمحتوى */
-            border-radius: 10px; /* زوايا دائرية */
-            max-width: 800px; /* عرض أقصى للمحتوى */
-            margin: 20px auto; /* مركز المحتوى */
-        }
+        <!-- Individual 0's and 1's with separate animations -->
+        <g id="binaryNumbers">
+            <text id="number1" x="30" y="30" font-family="Arial, sans-serif" font-size="20" fill="#6E44FF">0</text>
+            <text id="number2" x="70" y="50" font-family="Arial, sans-serif" font-size="20" fill="#1CDCE8">1</text>
+            <text id="number3" x="110" y="20" font-family="Arial, sans-serif" font-size="20" fill="#F77E21">0</text>
+            <text id="number4" x="150" y="90" font-family="Arial, sans-serif" font-size="20" fill="#FF5F6D">1</text>
+            <text id="number5" x="190" y="40" font-family="Arial, sans-serif" font-size="20" fill="#FFC371">0</text>
+        </g>
 
-        h2 {
-            margin-top: 20px;
-        }
+        <!-- Animations for each number -->
+        <g>
+            <animateTransform xlink:href="#number1" attributeName="transform" type="translate" values="0,0;50,-50;0,0;-50,-50;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#number2" attributeName="transform" type="translate" values="0,0;50,-40;0,0;-50,-40;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#number3" attributeName="transform" type="translate" values="0,0;40,-30;0,0;-40,-30;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#number4" attributeName="transform" type="translate" values="0,0;30,-50;0,0;-30,-50;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#number5" attributeName="transform" type="translate" values="0,0;30,-20;0,0;-30,-20;0,0" dur="5s" repeatCount="indefinite"/>
+        </g>
 
-        .video-container {
-            margin-bottom: 20px;
-            text-align: center;
-        }
+        <!-- Animations for each point -->
+        <g>
+            <animateTransform xlink:href="#point1" attributeName="transform" type="translate" values="0,0;30,-30;0,0;-30,-30;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#point2" attributeName="transform" type="translate" values="0,0;30,-40;0,0;-30,-40;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#point3" attributeName="transform" type="translate" values="0,0;40,-30;0,0;-40,-30;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#point4" attributeName="transform" type="translate" values="0,0;30,-50;0,0;-30,-50;0,0" dur="5s" repeatCount="indefinite"/>
+            <animateTransform xlink:href="#point5" attributeName="transform" type="translate" values="0,0;30,-20;0,0;-30,-20;0,0" dur="5s" repeatCount="indefinite"/>
+        </g>
+    </svg>
+</div>
 
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background: #f4f4f4;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
 
-        .video-description {
-            margin-top: 10px;
-        }
 
-        .social-links {
-            margin: 15px 0;
-        }
 
-        .social-links a {
-            color: #fff;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>مدونة التصيد الاحتيالي</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">عن المدونة</a></li>
-                <li><a href="#videos">المقالات</a></li>
-            </ul>
-        </nav>
-        <div class="social-links">
-            <a href="https://twitter.com/your_twitter_handle" target="_blank">تويتر</a>
-            <a href="https://instagram.com/your_instagram_handle" target="_blank">إنستغرام</a>
-        </div>
-    </header>
 
-    <main>
-        <section id="about">
-            <h2>عن المدونة</h2>
-            <p>نشارك هنا الشروحات والنصائح المتعلقة بالتصيد الاحتيالي والحماية الإلكترونية.</p>
-        </section>
 
-        <section id="videos">
-            <h2>المقالات</h2>
 
-            <div class="video-container">
-                <h3>فيديو 1: كيفية التعرف على رسائل التصيد الاحتيالي</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-                <p class="video-description">في هذا الفيديو، سنتعلم كيفية التعرف على رسائل التصيد الاحتيالي وما يجب فعله عند استلامها.</p>
+
+
+
+                </div>
+                <h1 class="animated-text" data-text="اهلا بك في مدونتي">اهلا بك في مدونتي</h1>
+                <div class="summary">
+                    <div class="summary-item">
+                        <span class="summary-label">Name:</span>
+                        <span class="summary-value">Saeed</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">university:</span>
+                        <span class="summary-value">UST in Mukalla</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">major:</span>
+                        <span class="summary-value">Cyber Security</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="summary-label">My Love:</span>
+                        <span class="summary-value">المعصوب & Linux</span>
+                    </div>
+                </div>
+               
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value"><a href="google.com" >google</a></div>
+                        <div class="stat-label">Vulnerabilities Detected</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value"><a href="google.com" >google</a></div>
+                        <div class="stat-label">bb</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value"><a href="google.com" >google</a></div>
+                        <div class="stat-label"> bb</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value"><a href="google.com" >google</a></div>
+                        <div class="stat-label"> bb </div>
+                    </div>
+                </div>
+                <h2 class="animated-text" data-text="MY CERTIFICATES and experiences">MY CERTIFICATES and experiences</h2>
+                <div class="timeline">
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>FULL PENTESTING COURCE from SECSTEIN SECURITY</h3>
+                            <img src="/home/sb3ly/Videos/1.jpg" alt="" width="380" height="190">
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>CYBER SECURITY from EDRAAK</h3>
+                            <img src="/home/sb3ly/Videos/2.jpg" alt="" width="380" height="190">
+                        </div>
+                    </div>
+                    <div class="timeline-item left">
+                        <div class="timeline-content">
+                            <h3>INTERNET & EMAIL ESSENTIALS from EDRAAK</h3>
+                            <img src="/home/sb3ly/Videos/3.jpg" alt="" width="380" height="190">
+                        </div>
+                    </div>
+                    <div class="timeline-item right">
+                        <div class="timeline-content">
+                            <h3>LINUX 100 from TCM SECURITY</h3>
+                            <img src="/home/sb3ly/Videos/4.jpg" alt="" width="380" height="190">
+                        </div>
+                    </div>
+                </div>
+                <h2 class="animated-text" data-text="Articles">Articles</h2>
+                <ul class="vulnerable-list">
+                    <li class="vulnerable-item">
+                    <a href="google.com" target="_blank" style="color: inherit; text-decoration: none;">الموضوع الأول</a></li>
+                    
+                  <li class="vulnerable-item"><a href="google.com" target="_blank" style="color: inherit; text-decoration: none;">الموضوع الثاني</a></li>
+                    
+                   <li class="vulnerable-item"><a href="google.com" style="color: inherit; text-decoration: none;">الموضوع الثالث</a></li>
+                   
+                </ul>
+                
             </div>
-
-            <div class="video-container">
-                <h3>فيديو 2: نصائح لحماية حساباتك الإلكترونية</h3>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-                <p class="video-description">تعرف على بعض النصائح الهامة لحماية حساباتك الإلكترونية من الهجمات.</p>
-            </div>
-
-            <div class="video-container">
-                <h3>فيديو 3: كيفية
+        </body>
+        </html>
+        
