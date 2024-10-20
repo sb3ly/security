@@ -15,38 +15,15 @@
                     --container-bg: rgba(0, 20, 40, 0.8);
                 }
 
+                    .responsive-img {
+                        width: 100%; /* اجعل الصورة تأخذ عرض الحاوية بالكامل */
+                        height: 200px; /* حدد ارتفاع ثابت (يمكنك تغييره حسب الحاجة) */
+                        object-fit: cover; /* تأكد من ملء الصورة للحاوية دون تشويه */
+                        display: block; /* منع وجود الفراغات البيضاء أسفل الصورة */
+                        margin: 0 auto; /* جعل الصورة تتمركز أفقياً */
+                    }
 
 
-                 .responsive-img {
-                  max-width: 100%; /* الصورة لا تتجاوز عرض الحاوية الخاصة بها */
-                  height: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
-                  display: block; /* منع وجود فراغات بيضاء أسفل الصورة */
-                  margin: 0 auto; /* تمركز الصورة في المنتصف */
-              }
-              
-              /* تحسين العرض للجوالات */
-              @media screen and (max-width: 768px) {
-                  .responsive-img {
-                      max-width: 100%; /* جعل الصورة بعرض 100% على الشاشات الصغيرة */
-                      height: auto;
-                  }
-              }
-              
-              /* تحسين العرض للأجهزة المتوسطة */
-              @media screen and (min-width: 768px) and (max-width: 1024px) {
-                  .responsive-img {
-                      max-width: 90%; /* تقليل عرض الصورة للأجهزة المتوسطة */
-                      margin: 0 auto;
-                  }
-              }
-              
-              /* تحسين العرض للشاشات الكبيرة */
-              @media screen and (min-width: 1024px) {
-                  .responsive-img {
-                      max-width: 80%; /* تقليل العرض على الشاشات الكبيرة */
-                      margin: 0 auto;
-                  }
-              }
 
 
 
